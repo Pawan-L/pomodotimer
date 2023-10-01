@@ -1,6 +1,6 @@
 // src/components/Login.js
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { Navigate } from "react-router-dom";
 function Login() {
@@ -8,11 +8,11 @@ function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [showLogin, setShowLogin] = useState(true);
-    const [isLoggedIN, setISLoggedIn]=useState(false);
-    useEffect(()=>{
+    const [isLoggedIN, setISLoggedIn] = useState(false);
+    useEffect(() => {
         setISLoggedIn(false)
-    },[])
-    if(isLoggedIN){
+    }, [])
+    if (isLoggedIN) {
         return <Navigate to="/pomodoro" />
     }
     const handleLogin = async (e) => {
@@ -27,6 +27,8 @@ function Login() {
     const toggleForm = (e) => {
         e.preventDefault();
         setShowLogin((showLogin) => !showLogin);
+        setEmail("")
+        setPassword("")
     };
     const handleSignUP = async (e) => {
         e.preventDefault();
@@ -35,14 +37,16 @@ function Login() {
         } catch (error) {
             setError(error.message);
         }
-        toggleForm();
+        toggleForm(e);
+        setEmail("")
+        setPassword("")
     };
 
     return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="bg-white p-8 rounded shadow-md w-96">
                 <h2 className="text-2xl font-bold mb-4">{showLogin ? "Login" : "Sign UP"}</h2>
-                <form onSubmit={showLogin?handleLogin:handleSignUP}>
+                <form onSubmit={showLogin ? handleLogin : handleSignUP}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-gray-600 font-semibold">
                             Email
@@ -75,7 +79,7 @@ function Login() {
                     >
                         {showLogin ? "Login" : "Sign UP"}
                     </button>
-                    {error && <p className="text-red-500 mb-4">{error?"email or password is incorrect":"Loggedin"}</p>}
+                    {error && <p className="text-red-500 mb-4">{error == "Firebase: Error (auth/invalid-login-credentials)." ? "Email or Password is inCorrect" : "Email Already used"}</p>}
                     <p>
                         {showLogin ? "Don't have an account?" : "Already have an account?"}
                         <button onClick={toggleForm}>
