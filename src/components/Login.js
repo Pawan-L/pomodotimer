@@ -43,8 +43,8 @@ function Login() {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-            <div className="bg-white p-8 rounded shadow-md w-96">
+        <div className="max-w-xs m-auto mt-24 bg-gray-100">
+            <div className="bg-white p-8 rounded shadow-md ">
                 <h2 className="text-2xl font-bold mb-4">{showLogin ? "Login" : "Sign UP"}</h2>
                 <form onSubmit={showLogin ? handleLogin : handleSignUP}>
                     <div className="mb-4">
@@ -81,7 +81,7 @@ function Login() {
                     </button>
                     {error && <p className="text-red-500 mb-4">{error == "Firebase: Error (auth/invalid-login-credentials)." ? "Email or Password is inCorrect" : "Email Already used"}</p>}
                     <p>
-                        {showLogin ? "Don't have an account?" : "Already have an account?"}
+                        {showLogin ? "Don't have an account?" : "Already have an account? "}
                         <button onClick={toggleForm}>
                             {showLogin ? "Sign Up" : "Login"}
                         </button>

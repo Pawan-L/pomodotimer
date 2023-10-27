@@ -25,8 +25,8 @@ const PomodoroTimer = () => {
     };
 
     return (
-        <div className="container m-auto rounded-3xl  w-1/3 flex flex-col items-center justify-center mt-24 bg-gray-500">
-            <h1 className="text-4xl font-bold mb-4 p-8">Pomodoro Timer</h1>
+        <div className="container overflow-x-auto  m-auto max-w-xs rounded flex flex-col items-center justify-center mt-24 bg-gray-500">
+            <h1 className="text-3xl font-bold mb-4 p-8">Pomodoro Timer</h1>
             <div className="mb-6">
                 <CountdownCircleTimer
                     key={key}
@@ -46,14 +46,14 @@ const PomodoroTimer = () => {
             <div className="mb-4">
                 <button
                     onClick={handleReset}
-                    className="px-6 py-2 mx-4 rounded-full font-bold bg-gray-600 text-white shadow-lg focus:ring-2
+                    className="px-5 py-2 mx-4 rounded-full font-bold bg-gray-600 text-white shadow-lg focus:ring-2
           focus:ring-offset-2 focus:ring-gray-500"
                 >
                     Reset
                 </button>
                 <button
                     onClick={() => setIsActive(!isActive)}
-                    className={` px-6 py-2 rounded-full text-white font-bold ${isActive ? "bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg" : "bg-green-600 focus:ring-2 focus:ring-offset-2 focus:ring-green-500 shadow-lg"}
+                    className={` px-5 py-2 rounded-full text-white font-bold ${isActive ? "bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-red-500 shadow-lg" : "bg-green-600 focus:ring-2 focus:ring-offset-2 focus:ring-green-500 shadow-lg"}
         `}
                 >
                     {isActive ? 'Pause' : 'Start'}
