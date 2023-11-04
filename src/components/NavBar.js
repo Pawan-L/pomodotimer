@@ -31,10 +31,10 @@ export default function NavBar(){
     return(
         <div className="shadow-md w-full fixed top-0 left-0">
             <div className="md:flex items-center justify-between bg-cyan-400 py-4 md:px-10 px-7">
-                <div className="font-bold text-2xl cursor-pointer flex items-center font-[poppins] text-gray-800">
+                <Link className="font-bold text-2xl cursor-pointer flex items-center font-[poppins] text-gray-800" to="/pomodoro">
                     <span className="text-3xl text-indigo-600 mr-1 pt-1"><IoIosTimer/></span>
                     Pomodoro Timer
-                </div>
+                </Link>
                 <div onClick={()=>setOpen(!open)} className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden">
                     {open?<IoClose/>:<FaList/>}
                 </div>
