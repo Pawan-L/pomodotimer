@@ -2,24 +2,24 @@ import React from 'react';
 
 const ControllerPanel = ({ onStartPomodoro, onStartBreak, onStartLongBreak }) => {
     return (
-        <div className="flex  justify-center space-x-2">
+        <div className="flex justify-center md:space-x-4 space-x-2 m-3">
             <button
-                className="p-2 font-bold rounded-full bg-blue-500  text-white shadow-lg 
-                focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-500"
+                className="md:px-3 md:py-1 px-2 py-1  font-bold rounded-full bg-teal-300  text-black shadow-lg 
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-teal-400 hover:bg-teal-400"
                 onClick={() => onStartPomodoro(25)}
             >
                 Pomodoro
             </button>
             <button
-                className="p-1 font-bold rounded-full bg-yellow-500  text-white shadow-lg 
-                focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-500"
+                className="px-3 font-bold rounded-full bg-teal-300  text-black shadow-lg 
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-teal-400 hover:bg-teal-400"
                 onClick={() => onStartBreak(5)}
             >
                 Short Break
             </button>
             <button
-                className="p-1 font-bold rounded-full bg-purple-500 text-white shadow-lg 
-                focus:ring-2 focus:ring-offset-2 focus:ring-offset-purple-500"
+                className="px-3 font-bold rounded-full bg-teal-300 text-black shadow-lg 
+                focus:ring-2 focus:ring-offset-2 focus:ring-offset-teal-400 hover:bg-teal-400"
                 onClick={() => onStartLongBreak(30)}
             >
                 Long Break
